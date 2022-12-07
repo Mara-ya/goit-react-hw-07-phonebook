@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { removedContact } from "redux/contactSlice";
 import { Contact } from "../Contact/Contact";
 
 export const ContactList = ({filtered}) => {
     const dispatch = useDispatch();
-    const contacts = useSelector(state => state.phonebook.contacts);
-    const filter = useSelector(state => state.phonebook.filter);  
 
     function handleDelete (id) {
     dispatch(removedContact(id));
