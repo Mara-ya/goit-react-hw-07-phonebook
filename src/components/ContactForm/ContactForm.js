@@ -21,7 +21,7 @@ export function ContactForm () {
   };
 
   return (
-    <Formik onSubmit={handleSubmit} initialValues={{ name: '', number: '' }}>
+    <Formik onSubmit={handleSubmit} initialValues={{ name: '', phone: '' }}>
     <WrapperForm>
       <lable>Name</lable>
       <InputForm
@@ -34,7 +34,7 @@ export function ContactForm () {
       <lable>Number</lable>
       <InputForm
         type="tel"
-        name="number"
+        name="phone"
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
