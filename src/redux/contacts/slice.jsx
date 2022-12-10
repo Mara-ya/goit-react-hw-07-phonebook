@@ -12,6 +12,12 @@ export const phonebookSlice = createSlice({
         filter: ""
     },
 
+    reducers: {
+        addFilter(state, action){
+            state.filter = action.payload; 
+        }
+    },
+
     extraReducers: {
         [fetchContacts.pending]: 
         state => {state.contacts.isLoading = true},
@@ -51,4 +57,5 @@ export const phonebookSlice = createSlice({
     }
 })
 
+export const {addFilter} = phonebookSlice.actions;
 export const contactsReducer = phonebookSlice.reducer;
