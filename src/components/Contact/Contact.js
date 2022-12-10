@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import { DeleteBtn } from "./Contact.styled";
 
 export const Contact = ({contact, onDelete}) => {
-    const { id, name, number } = contact;
+    const { id, name, phone } = contact;
     return (
         <>
-            <span>{name}: {number}</span>
+            <span>{name}: {phone}</span>
             <DeleteBtn type='button' onClick={() => onDelete(id)}>Delete</DeleteBtn>
         </>
     )

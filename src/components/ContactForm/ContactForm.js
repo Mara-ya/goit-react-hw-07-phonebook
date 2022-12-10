@@ -1,8 +1,7 @@
-import { nanoid } from "nanoid";
 import { useDispatch, useSelector } from "react-redux";
-import { addContact } from "redux/contactSlice";
 import { Formik } from 'formik';
 import { WrapperForm, InputForm, SubmitBtn } from './ContactForm.styled'
+import { addContact } from "redux/contacts/operations";
 
 export function ContactForm () {
   const dispatch = useDispatch();
@@ -10,11 +9,11 @@ export function ContactForm () {
 
 
   const handleSubmit = (values, {resetForm}) => {
-    const contactName = contacts.find(
-      contact => contact.name === values.name.trim()
+    const contactName = contacts.items.find(
+      item => item.name === values.name.trim()
     )
     if (!contactName){
-      dispatch(addContact({id: nanoid(5), ...values}));
+      dispatch(addContact({...values}));
     } else {
       return alert(`${contactName.name} is already in contacts.`);
     }

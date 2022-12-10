@@ -1,21 +1,21 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from "react-redux";
-import { removedContact } from "redux/contactSlice";
+import { removeContact } from "redux/contacts/operations";
 import { Contact } from "../Contact/Contact";
 
 export const ContactList = ({filtered}) => {
     const dispatch = useDispatch();
 
     function handleDelete (id) {
-    dispatch(removedContact(id));
+        dispatch(removeContact(id));
     };
 
     return (
         <ul>
-            {filtered.map(({ id, name, number }) => {
+            {filtered.map(({ id, name, phone }) => {
                 return (
                     <li key = {id}>
-                        <Contact contact={{id, name, number }} onDelete={handleDelete}/>
+                        <Contact contact={{id, name, phone }} onDelete={handleDelete}/>
                     </li>
                 )
             })}
